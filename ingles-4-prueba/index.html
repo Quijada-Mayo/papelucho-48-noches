@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Misión Inglés 4° · Days, Months & Celebrations</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--text:#1f2937;--muted:#667085;--a:#5b5bd6;--a2:#eef0ff;--ok:#e9f8f0;--okb:#b9e4cd;--warn:#fff5df;--warnb:#f1d493;--bd:#e4e7ec}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}.wrap{max-width:820px;margin:0 auto;padding:14px}.card{background:var(--card);border:1px solid var(--bd);border-radius:22px;padding:18px;box-shadow:0 8px 28px #1f29370d}.top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}h1{font-size:26px;margin:4px 0 8px}h2{font-size:22px;margin:8px 0}h3{font-size:18px;margin:8px 0}p,li{font-size:17px;line-height:1.45}.small{font-size:14px;color:var(--muted);line-height:1.45}.badge{background:var(--a2);color:#3f3fa5;border-radius:999px;padding:7px 10px;font-size:13px;font-weight:800}.panel{background:#f8f9fc;border:1px solid var(--bd);border-radius:16px;padding:14px;margin-top:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}button{width:100%;min-height:54px;border:1px solid var(--bd);border-radius:16px;background:#fff;padding:12px 14px;font-size:17px;font-weight:800;color:var(--text);cursor:pointer}button.primary{background:var(--a);color:#fff;border:none}button.secondary{background:var(--a2);color:#3f3fa5;border:none}button.ghost{background:#fff}.hidden{display:none!important}.progress{height:10px;background:#edf0f5;border-radius:99px;overflow:hidden;margin:14px 0}.progress>div{height:100%;background:var(--a);transition:.25s}.center{text-align:center}.big{font-size:58px}.word{font-size:34px;font-weight:900;margin:8px 0}.translation{font-size:20px;color:#475467}.studyBox{background:#fbfbfd;border:1px solid var(--bd);border-radius:18px;padding:18px;margin-top:12px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{background:#f2f4f7;border-radius:999px;padding:8px 11px;font-size:15px;font-weight:700}.q{font-size:22px;font-weight:900;line-height:1.35;margin:10px 0}.visual{font-size:70px;text-align:center;margin:10px 0}.answers{display:grid;gap:10px;margin-top:12px}.answers button{text-align:left}.inputWrap{display:flex;gap:8px;margin-top:12px}.inputWrap input{flex:1;min-height:54px;border:2px solid var(--bd);border-radius:14px;padding:10px 12px;font-size:20px}.feedback{border-radius:16px;padding:14px;margin-top:12px}.feedback.ok{background:var(--ok);border:1px solid var(--okb)}.feedback.try{background:var(--warn);border:1px solid var(--warnb)}.meta{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--muted)}.reading{background:#fff;border:2px solid #d9d9f7;border-radius:18px;padding:16px;margin:10px 0}.reading p{margin:6px 0}.miniCal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}.miniCal span{background:#f3f4f6;border-radius:10px;padding:8px 4px;text-align:center;font-size:13px;font-weight:800}.studyList{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.studyItem{background:#f7f7fb;border-radius:13px;padding:10px}.studyItem b{display:block;font-size:17px}.studyItem span{font-size:14px;color:var(--muted)}.scoreBox{font-size:22px;font-weight:900}.weak{background:#f8f9fc;border-radius:14px;padding:12px;margin-top:8px}@media(max-width:620px){.wrap{padding:8px}.card{padding:14px}.grid3,.grid2,.studyList{grid-template-columns:1fr}.top{display:block}.inputWrap{display:block}.inputWrap button{margin-top:8px}.word{font-size:30px}.q{font-size:20px}.miniCal{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+<section id="home">
+<div class="top"><div><div class="small">Inglés · 4° Básico · Repaso para la prueba</div><h1>🇬🇧 Misión Inglés 4°</h1><p class="small">Days of the week · Months · Celebrations · Reading comprehension</p></div><div class="badge">Sin cronómetro</div></div>
+<div class="panel"><b>Para hoy:</b><p>Primero <b>ESTUDIAR</b>, después <b>PRACTICAR</b> y al final hacer el <b>SIMULACRO</b>.</p><p class="small">Incluye reconocimiento, escritura, imágenes y mini lecturas.</p></div>
+<div class="grid3"><button class="primary" onclick="startStudy()">📘 ESTUDIAR</button><button class="secondary" onclick="startPractice()">🎯 PRACTICAR</button><button onclick="startTest()">📝 SIMULACRO</button></div>
+</section>
+
+<section id="study" class="hidden">
+<div class="top"><div><div class="small" id="studyLabel"></div><h2 id="studyTitle"></h2></div><div class="badge" id="studyCount"></div></div>
+<div class="progress"><div id="studyBar"></div></div>
+<div id="studyBody"></div>
+<button class="ghost" onclick="speakStudy()">🔊 Escuchar</button>
+<div class="grid2"><button id="studyPrev" onclick="studyPrev()">← Anterior</button><button class="primary" id="studyNext" onclick="studyNext()">Siguiente →</button></div>
+<button class="ghost" style="margin-top:10px" onclick="goHome()">⌂ Inicio</button>
+</section>
+
+<section id="quiz" class="hidden">
+<div class="top"><div><div class="small" id="modeLabel"></div><div id="round" class="small"></div></div><div class="badge scoreBox" id="score">⭐ 0</div></div>
+<div class="progress"><div id="quizBar"></div></div>
+<div id="promptVisual" class="visual hidden"></div>
+<div id="readingBox" class="reading hidden"></div>
+<div id="question" class="q"></div>
+<button class="ghost" onclick="speakQuestion()">🔊 Escuchar</button>
+<div id="answers" class="answers"></div>
+<div id="typing" class="inputWrap hidden"><input id="typeInput" autocomplete="off" spellcheck="false" placeholder="Escribe en inglés"><button class="primary" onclick="submitTyped()">Revisar</button></div>
+<div id="feedback" class="feedback hidden"></div>
+<button id="nextQ" class="primary hidden" style="margin-top:12px" onclick="nextQuestion()">Siguiente →</button>
+<button class="ghost" style="margin-top:10px" onclick="goHome()">⌂ Salir</button>
+</section>
+
+<section id="end" class="hidden center">
+<div id="endEmoji" class="big"></div><h2 id="endTitle"></h2><p id="endText"></p><div id="weak"></div>
+<div class="grid2"><button class="secondary" onclick="startPractice()">🎯 Practicar otra vez</button><button class="primary" onclick="goHome()">⌂ Inicio</button></div>
+</section>
+</div></div>
+<script>
+const DAYS=[['Monday','lunes'],['Tuesday','martes'],['Wednesday','miércoles'],['Thursday','jueves'],['Friday','viernes'],['Saturday','sábado'],['Sunday','domingo']];
+const MONTHS=[['January','enero'],['February','febrero'],['March','marzo'],['April','abril'],['May','mayo'],['June','junio'],['July','julio'],['August','agosto'],['September','septiembre'],['October','octubre'],['November','noviembre'],['December','diciembre']];
+const CELEB=[['Birthday','cumpleaños','🎂'],['Christmas','Navidad','🎄'],['Halloween','Halloween','🎃'],['Easter','Pascua','🐰'],['New Year','Año Nuevo','🎆'],['Independence Day','Día de la Independencia','🇨🇱']];
+const studyCards=[
+{label:'DAYS · 1',title:'📅 Los 7 días',html:`<div class="studyBox"><div class="studyList">${DAYS.map(x=>`<div class="studyItem"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div><div class="miniCal">${DAYS.map(x=>`<span>${x[0].slice(0,3)}</span>`).join('')}</div></div>`,say:'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday'},
+{label:'DAYS · 2',title:'🧠 Cómo recordarlos',html:`<div class="studyBox"><p><b>Monday → Friday</b> = días de colegio.</p><p><b>Saturday + Sunday</b> = weekend.</p><div class="chips"><span class="chip">today = hoy</span><span class="chip">tomorrow = mañana</span><span class="chip">yesterday = ayer</span></div><p class="small">Ojo con <b>Wednesday</b>: se escribe más largo de lo que suena.</p></div>`,say:'Today means hoy. Tomorrow means mañana. Yesterday means ayer. Wednesday.'},
+{label:'MONTHS · 1',title:'🗓️ January to June',html:`<div class="studyBox"><div class="studyList">${MONTHS.slice(0,6).map(x=>`<div class="studyItem"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div></div>`,say:'January, February, March, April, May, June'},
+{label:'MONTHS · 2',title:'🗓️ July to December',html:`<div class="studyBox"><div class="studyList">${MONTHS.slice(6).map(x=>`<div class="studyItem"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div></div>`,say:'July, August, September, October, November, December'},
+{label:'MONTHS · 3',title:'⚠️ No te confundas',html:`<div class="studyBox"><p><b>September</b> = septiembre</p><p><b>October</b> = octubre</p><p><b>November</b> = noviembre</p><p><b>December</b> = diciembre</p><p class="small">En inglés los días y meses comienzan con mayúscula.</p></div>`,say:'September. October. November. December.'},
+{label:'CELEBRATIONS · 1',title:'🎉 Celebrations',html:`<div class="studyBox"><div class="studyList">${CELEB.map(x=>`<div class="studyItem"><b>${x[2]} ${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div></div>`,say:'Birthday. Christmas. Halloween. Easter. New Year. Independence Day.'},
+{label:'READING · 1',title:'📖 Qué buscar en un texto',html:`<div class="studyBox"><p>Cuando leas, busca primero:</p><div class="chips"><span class="chip">WHO? = ¿quién?</span><span class="chip">WHEN? = ¿cuándo?</span><span class="chip">WHAT? = ¿qué?</span><span class="chip">WHERE? = ¿dónde?</span></div><p class="small">No traduzcas todo. Busca la palabra clave.</p></div>`,say:'Who. When. What. Where.'},
+{label:'READING · 2',title:'📖 Mini lectura modelo',html:`<div class="reading"><p><b>My birthday is in May.</b></p><p>It is on Saturday.</p><p>I celebrate with my family.</p></div><div class="studyBox"><p>🎂 Celebration: <b>Birthday</b></p><p>🗓️ Month: <b>May</b></p><p>📅 Day: <b>Saturday</b></p></div>`,say:'My birthday is in May. It is on Saturday. I celebrate with my family.'}
+];
+
+const base=[];
+DAYS.forEach(([en,es],i)=>{base.push({cat:'Days',type:'type',q:`Escribe en inglés: ${es}`,ans:en,tip:`${es} = ${en}`});base.push({cat:'Days',type:'mc',q:`¿Qué significa ${en}?`,opts:[es,...DAYS.filter(x=>x[0]!==en).slice(0,3).map(x=>x[1])],ans:es,tip:`${en} = ${es}`});if(i<6)base.push({cat:'Days',type:'mc',q:`¿Qué día viene después de ${en}?`,opts:[DAYS[i+1][0],DAYS[(i+2)%7][0],DAYS[(i+3)%7][0],DAYS[(i+4)%7][0]],ans:DAYS[i+1][0],tip:`Después de ${en} viene ${DAYS[i+1][0]}.`})});
+MONTHS.forEach(([en,es],i)=>{base.push({cat:'Months',type:'type',q:`Escribe en inglés: ${es}`,ans:en,tip:`${es} = ${en}`});if(i<11)base.push({cat:'Months',type:'mc',q:`¿Qué mes viene después de ${en}?`,opts:[MONTHS[i+1][0],MONTHS[(i+2)%12][0],MONTHS[(i+3)%12][0],MONTHS[(i+4)%12][0]],ans:MONTHS[i+1][0],tip:`Después de ${en} viene ${MONTHS[i+1][0]}.`})});
+CELEB.forEach(([en,es,icon])=>{base.push({cat:'Celebrations',type:'type',visual:icon,q:'Mira la imagen y escribe cómo se llama la celebración en inglés.',ans:en,tip:`${icon} = ${en}`});base.push({cat:'Celebrations',type:'mc',visual:icon,q:'¿Qué celebración representa la imagen?',opts:[en,...CELEB.filter(x=>x[0]!==en).slice(0,3).map(x=>x[0])],ans:en,tip:`La respuesta es ${en}.`})});
+const readings=[
+{cat:'Reading',type:'mc',reading:'My birthday is in May. It is on Saturday. I celebrate with my family.',q:'When is the birthday?',opts:['In May','In June','On Monday','At Christmas'],ans:'In May',tip:'Busca “birthday” + “May”.'},
+{cat:'Reading',type:'mc',reading:'Christmas is in December. My family has dinner together.',q:'What month is Christmas in?',opts:['December','October','April','July'],ans:'December',tip:'El texto dice “Christmas is in December”.'},
+{cat:'Reading',type:'mc',reading:'On Halloween, Tom wears a costume. Halloween is in October.',q:'What celebration is the text about?',opts:['Halloween','Easter','Birthday','Christmas'],ans:'Halloween',tip:'La palabra clave es “Halloween”.'},
+{cat:'Reading',type:'mc',reading:'Today is Monday. Tomorrow is Tuesday.',q:'What day is tomorrow?',opts:['Tuesday','Monday','Wednesday','Friday'],ans:'Tuesday',tip:'Tomorrow = mañana.'},
+{cat:'Reading',type:'mc',reading:'Easter is in April this year. Ana eats chocolate eggs.',q:'What month is Easter in?',opts:['April','May','March','December'],ans:'April',tip:'El texto dice “Easter is in April”.'}
+];
+const BANK=[...base,...readings];
+let section='home',studyIndex=0,mode='practice',qs=[],qi=0,score=0,tries=0,miss={};
+const $=id=>document.getElementById(id);
+function show(id){['home','study','quiz','end'].forEach(x=>$(x).classList.add('hidden'));$(id).classList.remove('hidden');section=id}
+function goHome(){show('home');if('speechSynthesis'in window)speechSynthesis.cancel()}
+function startStudy(){studyIndex=0;renderStudy();show('study')}
+function renderStudy(){const s=studyCards[studyIndex];$('studyLabel').textContent=s.label;$('studyTitle').textContent=s.title;$('studyBody').innerHTML=s.html;$('studyCount').textContent=(studyIndex+1)+' / '+studyCards.length;$('studyBar').style.width=((studyIndex+1)/studyCards.length*100)+'%';$('studyPrev').disabled=studyIndex===0;$('studyNext').textContent=studyIndex===studyCards.length-1?'Ir a practicar 🎯':'Siguiente →'}
+function studyPrev(){if(studyIndex>0){studyIndex--;renderStudy()}}
+function studyNext(){if(studyIndex<studyCards.length-1){studyIndex++;renderStudy()}else startPractice()}
+function speak(t){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.82;speechSynthesis.speak(u)}
+function speakStudy(){speak(studyCards[studyIndex].say)}
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function balancedPractice(){const d=shuffle(BANK.filter(x=>x.cat==='Days')).slice(0,6),m=shuffle(BANK.filter(x=>x.cat==='Months')).slice(0,6),c=shuffle(BANK.filter(x=>x.cat==='Celebrations')).slice(0,5),r=shuffle(readings).slice(0,3);return shuffle([...d,...m,...c,...r])}
+function startPractice(){mode='practice';qs=balancedPractice();startQuiz()}
+function startTest(){mode='test';const d=shuffle(BANK.filter(x=>x.cat==='Days')).slice(0,5),m=shuffle(BANK.filter(x=>x.cat==='Months')).slice(0,5),c=shuffle(BANK.filter(x=>x.cat==='Celebrations')).slice(0,4),r=shuffle(readings).slice(0,4);qs=shuffle([...d,...m,...c,...r]);startQuiz()}
+function startQuiz(){qi=0;score=0;miss={};show('quiz');renderQ()}
+function renderQ(){tries=0;const q=qs[qi];$('modeLabel').textContent=mode==='practice'?'🎯 PRÁCTICA':'📝 SIMULACRO';$('round').textContent='Pregunta '+(qi+1)+' de '+qs.length;$('score').textContent='⭐ '+score;$('quizBar').style.width=(qi/qs.length*100)+'%';$('question').textContent=q.q;$('feedback').className='feedback hidden';$('nextQ').classList.add('hidden');$('answers').innerHTML='';$('typing').classList.add('hidden');$('typeInput').value='';if(q.visual){$('promptVisual').textContent=q.visual;$('promptVisual').classList.remove('hidden')}else $('promptVisual').classList.add('hidden');if(q.reading){$('readingBox').textContent=q.reading;$('readingBox').classList.remove('hidden')}else $('readingBox').classList.add('hidden');if(q.type==='type'){$('typing').classList.remove('hidden');setTimeout(()=>$('typeInput').focus(),50)}else{shuffle(q.opts).forEach(opt=>{const b=document.createElement('button');b.textContent=opt;b.onclick=()=>answerMC(opt,b);$('answers').appendChild(b)})}}
+function norm(s){return s.trim().toLowerCase().replace(/[’']/g,'').replace(/\s+/g,' ')}
+function answerMC(opt,btn){const q=qs[qi];tries++;if(norm(opt)===norm(q.ans)){score++;finishAnswer(true,q.tip)}else{miss[q.cat]=(miss[q.cat]||0)+1;if(mode==='practice'&&tries===1){$('feedback').className='feedback try';$('feedback').innerHTML='<b>💡 Casi.</b> '+q.tip+'<br><b>Prueba una vez más.</b>';btn.disabled=true}else finishAnswer(false,`La correcta es <b>${q.ans}</b>. ${q.tip}`)}}
+function submitTyped(){const q=qs[qi],val=$('typeInput').value;tries++;if(norm(val)===norm(q.ans)){score++;finishAnswer(true,`${q.ans} ✅`)}else{miss[q.cat]=(miss[q.cat]||0)+1;if(mode==='practice'&&tries===1){$('feedback').className='feedback try';$('feedback').innerHTML=`<b>💡 Casi.</b> Mira bien la palabra: <b>${q.ans}</b><br>Escríbela una vez más.`;$('typeInput').value='';$('typeInput').focus()}else finishAnswer(false,`La respuesta era <b>${q.ans}</b>.`)}}
+function finishAnswer(ok,msg){$('feedback').className='feedback '+(ok?'ok':'try');$('feedback').innerHTML=(ok?'<b>🌟 ¡Bien!</b> ':'<b>🧠 Revisado.</b> ')+msg;$('nextQ').classList.remove('hidden');[...$('answers').querySelectorAll('button')].forEach(b=>b.disabled=true);$('typing').classList.add('hidden');$('score').textContent='⭐ '+score}
+function nextQuestion(){qi++;if(qi>=qs.length)return finishQuiz();renderQ()}
+function finishQuiz(){show('end');const pct=Math.round(score/qs.length*100),good=pct>=70;$('endEmoji').textContent=good?'🎉🇬🇧':'🧠🔁';$('endTitle').textContent=good?'¡Muy buen repaso!':'Ya sabemos qué reforzar';$('endText').textContent=`Lograste ${score} de ${qs.length} (${pct}%).`;const w=Object.entries(miss).sort((a,b)=>b[1]-a[1]).slice(0,3);$('weak').innerHTML=w.length?'<div class="panel"><b>📌 Repasen especialmente:</b>'+w.map(([x])=>`<div class="weak">${x}</div>`).join('')+'</div>':'<div class="panel">🌟 No hay un tema que se repita entre los errores.</div>'}
+function speakQuestion(){const q=qs[qi];let t=q.reading?q.reading+'. ':'';t+=q.q;if(q.type==='mc')t+='. '+q.opts.join('. ');speak(t)}
+$('typeInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('typing').classList.contains('hidden'))submitTyped()});
+goHome();
+</script>
+</body></html>
